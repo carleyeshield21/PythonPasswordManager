@@ -1,4 +1,3 @@
-import json
 from tkinter import *
 from tkinter import messagebox
 import pyperclip
@@ -46,25 +45,27 @@ def save():
 
         # if is_ok:
         #     with open('data.txt', 'a') as data_file:
-        # with open('data.json', 'w') as data_file:
-        #         # data_file.write(f'{website} | {email} | {password}\n')
-        #         # json.dump(new_data,data_file)
-        #         json.dump(new_data, data_file, indent=2)
-        #         website_entry.delete(0, END)
-        #         password_entry.delete(0, END)
 
-        # The code below is used when there is already an existing json file and we need to add data and update it
-        with open('data.json', 'r') as data_file:
-                # Reading old/existing data
-                data_json = json.load(data_file)
-                # Updating old data with new data
-                data_json.update(new_data)
-
+        # The code below should be run first before the lines of code, it there is no existing json file
         with open('data.json', 'w') as data_file:
-                # Saving updated data
-                json.dump(data_json, data_file, indent=2)
+                # data_file.write(f'{website} | {email} | {password}\n')
+                # json.dump(new_data,data_file)
+                json.dump(new_data, data_file, indent=2)
                 website_entry.delete(0, END)
                 password_entry.delete(0, END)
+
+        # # With existing json file. The code below is used when there is already an existing json file and we need to add data and update it
+        # with open('data.json', 'r') as data_file:
+        #         # Reading old/existing data
+        #         data_json = json.load(data_file)
+        #         # Updating old data with new data
+        #         data_json.update(new_data)
+        #
+        # with open('data.json', 'w') as data_file:
+        #         # Saving updated data
+        #         json.dump(data_json, data_file, indent=2)
+        #         website_entry.delete(0, END)
+        #         password_entry.delete(0, END)
 
 # ---------------------------- UI SETUP ------------------------------- #
 bintana = Tk()
